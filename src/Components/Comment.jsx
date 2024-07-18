@@ -22,7 +22,7 @@ const Comment = ({ blog_id }) => {
   const addComment = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/blog/addComment",
+        "https://blogging-app-api-six.vercel.app//blog/addComment",
         {
           comment: comment,
           user_id: userToken,
@@ -43,12 +43,7 @@ const Comment = ({ blog_id }) => {
   return (
     <>
       <div className="flex flex-col justify-start items-center gap-2 my-3">
-        {/* <img
-          src="/logo.png"
-          alt=""
-          width={40}
-          className="border-2 border-green-400 rounded-full p-1"
-        /> */}
+
         <textarea
           type="text"
           placeholder="enter comment"

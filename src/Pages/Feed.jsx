@@ -22,7 +22,7 @@ const Feed = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/blog/feed",
+        "https://blogging-app-api-six.vercel.app/blog/feed",
         {
           title: title,
           description: des,
@@ -149,8 +149,8 @@ const Feed = () => {
             {/* buttons */}
             <div className="flex flex-row-reverse justify-center items-center gap-8">
               <button
-                className="flex flex-row justify-center items-center 
-             gap-3 hover:border-transparent border-2 border-blue-400 
+                className="flex flex-row justify-center items-center
+             gap-3 hover:border-transparent border-2 border-blue-400
              px-3 py-1 hover:bg-blue-500 hover:rounded-lg hover:text-white"
                 onClick={onhandleSubmit}
               >
@@ -161,7 +161,7 @@ const Feed = () => {
                   setcoverimg(null);
                 }}
                 type="reset"
-                className="flex flex-row justify-center items-center 
+                className="flex flex-row justify-center items-center
              gap-3 hover:border-transparent border-2 border-red-400
               px-3 py-1 hover:bg-red-500 hover:rounded-lg hover:text-white"
               >

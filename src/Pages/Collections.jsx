@@ -10,7 +10,7 @@ const Collections = () => {
   const [Data, setData] = useState([]);
   const [loading, setloading] = useState(false);
   const [token, settoken] = useState(sessionStorage.getItem("token"));
-  const host = "http://localhost:8000";
+  const host = "https://blogging-app-api-six.vercel.app";
 
   useEffect(() => {
     if (token) {

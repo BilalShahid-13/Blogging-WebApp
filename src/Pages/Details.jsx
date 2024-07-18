@@ -6,7 +6,7 @@ import Loading from "../Components/Loading";
 
 const Details = () => {
   const { id } = useParams();
-  const host = "http://localhost:8000";
+  const host = "https://blogging-app-api-six.vercel.app";
   const [Data, setData] = useState(null);
   const [comments, setcomments] = useState([]);
   const [loading, setloading] = useState(false);

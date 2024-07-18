@@ -37,7 +37,7 @@ const Login = () => {
         try {
           setloading(true);
           const response = await axios.post(
-            "http://localhost:8000/register/login",
+            "https://blogging-app-api-six.vercel.app/register/login",
             {
               email: email,
               password: password,

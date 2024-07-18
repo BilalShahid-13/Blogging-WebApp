@@ -32,13 +32,13 @@ const Card = ({ img, title, createdAt, index, Data, Category }) => {
       <div
         className="flex flex-col justify-center items-center
       border-[1px] border-zinc-300 rounded-md gap-4 py-3
-      shadow-md hover:shadow-blue-300 transition-all 
+      shadow-md hover:shadow-blue-300 transition-all
       duration-500 ease-linear hover:cursor-pointer
       max-md:w-full w-full max-md:h-[70vh] h-[70%]"
         onClick={CardClick}
       >
         <img
-          src={img ? `http://localhost:8000/${img}` : "blog.jpg"}
+          src={img ? `https://blogging-app-api-six.vercel.app/${img}` : "blog.jpg"}
           className="p-3 object-contain w-full h-full rounded-lg drop-shadow-md"
           onError={(e) => {
             e.target.src = "blog.jpg";

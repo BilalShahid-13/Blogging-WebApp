@@ -33,13 +33,12 @@ const Navbar = () => {
           </span>
         </div>
         <div
-          className={`overflow-hidden transition-all ease-in duration-300 flex flex-row max-sm:flex-col max-sm:gap-2 
+          className={`overflow-hidden transition-all ease-in duration-300 flex flex-row max-sm:flex-col max-sm:gap-2
         justify-center items-center gap-12 hover:cursor-pointer
-         no-underline list-none ${
-           dropdown
-             ? "max-sm:h-full max-sm:opacity-100"
-             : "max-sm:h-0 max-sm:opacity-0"
-         }`}
+         no-underline list-none ${dropdown
+              ? "max-sm:h-full max-sm:opacity-100"
+              : "max-sm:h-0 max-sm:opacity-0"
+            }`}
         >
           {navbar_li.map((items, index) => (
             <Link
@@ -56,30 +55,30 @@ const Navbar = () => {
           ))}
         </div>
         <div
-          className={`${
-            dropdown
-              ? "max-sm:h-full opacity-100"
-              : "max-sm:h-0 max-sm:opacity-0"
-          } overflow-hidden transition-all duration-200`}
+          className={`${dropdown
+            ? "max-sm:h-full opacity-100"
+            : "max-sm:h-0 max-sm:opacity-0"
+            } overflow-hidden transition-all duration-200`}
         >
           {token ? (
             <button
               className="bg-white px-5 py-2 rounded-lg border-[1px] hover:border-zinc-900 hover:bg-neutral-50 transition-all duration-300 ease-in no-underline"
               onClick={() => {
                 sessionStorage.removeItem("token");
-                // navigate("/");
                 window.location.reload();
               }}
             >
               Logout
             </button>
           ) : (
-            <Link
-              to="/Register/Login"
-              className="bg-white px-5 py-2 rounded-lg border-[1px] hover:border-zinc-900 hover:bg-neutral-50 transition-all duration-300 ease-in no-underline"
+            <div className="bg-white px-5 py-2 rounded-lg border-[1px] hover:border-zinc-900 hover:bg-neutral-50 transition-all duration-300 ease-in no-underline"
             >
-              Register
-            </Link>
+              <Link
+                to="/Register/Login"
+              >
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </nav>

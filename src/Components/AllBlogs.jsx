@@ -4,7 +4,7 @@ import Card from "./Card";
 import Loading from "./Loading";
 
 const AllBlogs = () => {
-  const host = "http://localhost:8000";
+  const host = "https://blogging-app-api-six.vercel.app";
   const [Data, setData] = useState([]);
   const [loading, setloading] = useState(false);
   useEffect(() => {
