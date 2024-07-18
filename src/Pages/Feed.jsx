@@ -57,7 +57,7 @@ const Feed = () => {
           <div className="flex flex-col justify-center gap-7 my-5">
             {/* display img */}
             <img
-              src={`${coverimg ? URL.createObjectURL(coverimg) : "blog.jpg"}`}
+              src={`${coverimg ? URL.createObjectURL(coverimg) : "https://bilalshahid-13.github.io/Blogging-WebApp/blog.jpg"}`}
               alt="blog img"
               className="m-2 border-[2px] border-blue-500 p-1 rounded-lg"
             />
