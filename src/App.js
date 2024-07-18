@@ -13,7 +13,6 @@ function App() {
 
   return (
     <>
-      {/* <Home /> */}
 
       {/* <HashRouter> */}
       {location.pathname === "/Register/Login" ||
@@ -21,7 +20,7 @@ function App() {
         <Navbar />
       )}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Blogging-WebApp" element={<Home />} />
         <Route path="Collections" element={<Collections />} />
         <Route path="Feeds" element={<Feed />} />
         <Route path="/Register/Login" Component={Login} />
