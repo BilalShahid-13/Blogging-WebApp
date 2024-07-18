@@ -73,7 +73,7 @@ const Signup = () => {
         }
 
         if (response.status === 201) {
-          navigate("/");
+          navigate("/Blogging-WebApp");
         }
       } catch (error) {
         console.log("error", error);

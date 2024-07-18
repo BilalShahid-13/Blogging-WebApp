@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "homepage": "https://BilalShahid-13.github.io/Blogging-WebApp",
-=======
-    "homepage": "https://BilalShahid-13.github.io/Blogging-WebApp",
->>>>>>> 84478f00e296405849aaecad711e229888988436
   "name": "clinet",
   "version": "0.1.0",
   "private": true,
@@ -22,7 +18,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
