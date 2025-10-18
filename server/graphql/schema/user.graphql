@@ -6,6 +6,7 @@ type User {
   avatarUrl: String
   createdAt: String
   updatedAt: String
+  token: String
 }
 
 type CreateUserResponse {

@@ -15,8 +15,6 @@ export async function POST(request: Request) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const base64String = buffer.toString("base64");
 
-    const filename = `${Date.now()}_${(file as File).name.replaceAll(" ", "_")}`;
-
     // ✅ Send data to your REST API
     const response = await fetch("http://localhost:3402/avatar", {
       method: "POST",
@@ -24,8 +22,8 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email:"bilal",
-        // email:"bilal@g.com",
+        // email:"bilal",
+        email:"bilal@g.com",
         fileSize: file.size,
         fileType: file.type,
         fileName: file.name,

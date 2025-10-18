@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { generateToken } from "@/lib/token";
 import { CreateUserResponse, User } from "@/types";
 import { comparePassword } from "@/utils/bcrypt";
 import { GraphQLError } from "graphql";
@@ -7,6 +8,9 @@ export async function loginHandler(args: User): Promise<CreateUserResponse> {
   const existingUser = await db.prisma.user.findUnique({
     where: {
       email: args.email,
+    },
+    include: {
+      avatar: true  // ← Add this to include avatar relation
     }
   })
   if (!existingUser) {
@@ -20,8 +24,23 @@ export async function loginHandler(args: User): Promise<CreateUserResponse> {
       extensions: { code: "INVALID_CREDENTIALS" },
     });
   }
+  const user: User = {
+    id: existingUser.id,
+    username: existingUser.username,
+    email: existingUser.email,
+    password: existingUser.password,
+    avatarUrl: existingUser.avatar?.url || null,
+    createdAt: existingUser.createdAt,
+    updatedAt: existingUser.updatedAt,
+    token: generateToken({
+      id: existingUser.id,
+      email: existingUser.email,
+      username: existingUser.username,
+      avatarUrl:existingUser.avatar?.url
+    })
+  }
   return {
-    user: existingUser,
+    user: user,
     message: "User login success"
   };
 }
