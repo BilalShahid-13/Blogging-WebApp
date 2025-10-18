@@ -1,0 +1,45 @@
+{
+  "name": "blogging-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "nodemon --exec ts-node ./index.ts",
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register index.ts",
+    "dev:gateway": "nodemon --exec ts-node -r tsconfig-paths/register gateway/index.ts",
+    "dev:user": "nodemon --exec ts-node -r tsconfig-paths/register services/user.ts",
+    "dev:restApi": "nodemon --exec ts-node -r tsconfig-paths/register modules/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.1",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.17.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^2.11.3",
+    "@apollo/server": "^5.0.0",
+    "@apollo/subgraph": "^2.11.3",
+    "@as-integrations/express5": "^1.1.2",
+    "@prisma/client": "^6.17.1",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6",
+    "zod": "^4.1.12"
+  }
+}

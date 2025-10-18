@@ -1,0 +1,27 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  avatarUrl: String
+  createdAt: String
+  updatedAt: String
+}
+
+type CreateUserResponse {
+  message: String!
+  user: User
+}
+
+type Query {
+  login(email: String!, password: String!): CreateUserResponse
+}
+
+type Mutation {
+  createUser(
+    username: String!
+    email: String!
+    password: String!
+    avatarUrl: String
+  ): CreateUserResponse
+}

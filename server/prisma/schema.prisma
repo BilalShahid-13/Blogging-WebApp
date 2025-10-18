@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "./prisma/schema.prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  slug      String    @unique
+  title     String
+  content   String
+  published Boolean
+  authorId  String    @db.ObjectId
+  author    User      @relation(fields: [authorId], references: [id])
+  tagIds    String[]  @db.ObjectId
+  tag       TagIds    @relation(fields: [tagIds], references: [id])
+  media     Media     @relation(fields: [mediaIds], references: [id])
+  mediaIds  String[]  @db.ObjectId
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Comment   Comment[]
+  embedding Float[]   @default([])
+  Like      Like[]
+}
+
+model User {
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  username     String
+  email        String         @unique
+  password     String
+  avatar       Avatar?        @relation(fields: [avatarId], references: [id])
+  avatarId     String?        @db.ObjectId
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  Post         Post[]
+  Comment      Comment[]
+  Like         Like[]
+  Notification Notification[]
+}
+
+model Avatar {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  url          String
+  fileType     String
+  name         String
+  lastModified DateTime @default(now())
+  User         User[]
+}
+
+model TagIds {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  Post Post[]
+}
+
+model Media {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  url        String
+  type       String
+  postId     String
+  uploadedAt DateTime @default(now())
+  Post       Post[]
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  body      String
+  postId    String   @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id])
+  authorId  String   @db.ObjectId
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  Like      Like[]
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  postId    String   @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id])
+  commentId String   @db.ObjectId
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  message   String
+  read      Boolean
+  createdAt DateTime @default(now())
+}
