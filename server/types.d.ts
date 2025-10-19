@@ -1,7 +1,5 @@
 export interface User {
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
   username: string;
   email: string;
   password: string;
@@ -9,20 +7,17 @@ export interface User {
   token?: string
 }
 
+export interface Avatar {
+  buffer: string;
+  token: string;
+}
+
 export interface CreateUserResponse {
   message: string;
   user: User;
 }
 
-
-export interface Avatar {
-  name: string;
-  url: string;
-  lastModified: Date;
-  id: string;
-  email: string;
-  fileSize: number;
-  fileType: string;
-  fileName: string;
-  buffer: string;
+export interface CreateAvatarResponse {
+  message: string;
+  avatarUrl?: string
 }

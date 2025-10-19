@@ -9,9 +9,20 @@ type User {
   token: String
 }
 
+type Avatar {
+  id: ID!
+  url: String!
+  lastModified: String
+}
+
 type CreateUserResponse {
   message: String!
   user: User
+}
+
+type AvatarResponse {
+  message: String!
+  avatarUrl:String!
 }
 
 type Query {
@@ -19,10 +30,16 @@ type Query {
 }
 
 type Mutation {
+  # create user
   createUser(
     username: String!
     email: String!
     password: String!
     avatarUrl: String
   ): CreateUserResponse
+  # create avatar
+  createAvatar(
+    token: String!
+    buffer: String!
+  ): AvatarResponse
 }

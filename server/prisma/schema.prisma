@@ -51,8 +51,8 @@ model User {
 model Avatar {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   url          String?
-  fileType     String?
-  name         String?
+  // fileType     String?
+  // name         String?
   lastModified DateTime @default(now())
   User         User[]
 }

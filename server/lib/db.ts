@@ -12,12 +12,14 @@ class Database {
   private async prismaDisconnect(): Promise<void> {
     await this.prisma.$disconnect();
   }
-  async prismaConfigure(successFn: () => any, errorFn: (error: any) => void) {
+  async prismaConfigure(successFn: () => any) {
     try {
       await this.prismaConnect();
       return await successFn();
     } catch (error) {
-      return errorFn(error);
+      // errorFn(error);
+      throw error;
+      // return errorFn(error);
     } finally {
       await this.prismaDisconnect();
     }

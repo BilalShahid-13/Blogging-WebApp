@@ -9,23 +9,28 @@
     "start": "nodemon --exec ts-node ./index.ts",
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register index.ts",
     "dev:gateway": "nodemon --exec ts-node -r tsconfig-paths/register gateway/index.ts",
-    "dev:user": "nodemon --exec ts-node -r tsconfig-paths/register services/user.ts",
-    "dev:restApi": "nodemon --exec ts-node -r tsconfig-paths/register modules/index.ts"
+    "dev:user": "nodemon --exec ts-node -r tsconfig-paths/register services/user.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.38.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/jwt-decode": "^2.2.1",
     "@types/node": "^24.7.1",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "jiti": "^2.6.1",
     "nodemon": "^3.1.10",
     "prisma": "^6.17.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1"
   },
   "dependencies": {
     "@apollo/gateway": "^2.11.3",
@@ -42,6 +47,7 @@
     "graphql": "^16.11.0",
     "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "zod": "^4.1.12"
   }
 }

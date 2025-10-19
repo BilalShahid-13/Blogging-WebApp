@@ -9,8 +9,9 @@ async function start() {
   const gateway = new ApolloGateway({
     supergraphSdl: new IntrospectAndCompose({
       subgraphs: [
-        // { name: "users", url: `${process.env.HOST}${process.env.USER_PORT}` },
-        { name: "avatar", url: `${process.env.HOST}${process.env.AVATAR_PORT}` },
+        { name: "user", url: "http://localhost:3401" },
+        // { name: "user", url: `${process.env.HOST}:${process.env.USER_PORT}` },
+        // { name: "avatar", url: `${process.env.HOST}${process.env.AVATAR_PORT}` },
       ]
     })
   })

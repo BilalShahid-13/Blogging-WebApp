@@ -30,13 +30,11 @@ export async function loginHandler(args: User): Promise<CreateUserResponse> {
     email: existingUser.email,
     password: existingUser.password,
     avatarUrl: existingUser.avatar?.url || null,
-    createdAt: existingUser.createdAt,
-    updatedAt: existingUser.updatedAt,
     token: generateToken({
       id: existingUser.id,
       email: existingUser.email,
       username: existingUser.username,
-      avatarUrl:existingUser.avatar?.url
+      avatarUrl: existingUser.avatar?.url
     })
   }
   return {

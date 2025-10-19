@@ -38,8 +38,6 @@ export async function createUserFn(args: User): Promise<CreateUserResponse> {
     email: User.email,
     password: User.password,
     avatarUrl: User.avatar?.url || null,
-    createdAt: User.createdAt,
-    updatedAt: User.updatedAt,
     token: generateToken({
       id: User.id,
       username: User.username,

@@ -18,7 +18,7 @@ export const userResolvers = {
       });
       return await db.prismaConfigure(
         async () => await createUserFn(args),
-        (error) => errorHandler(error),
+        // (error) => errorHandler(error),
       );
 
     }
@@ -32,7 +32,7 @@ export const userResolvers = {
       });
       return await db.prismaConfigure(
         async () => await loginHandler(args),
-        (error) => errorHandler(error),
+        // (error) => errorHandler(error),
       );
     }
   }
